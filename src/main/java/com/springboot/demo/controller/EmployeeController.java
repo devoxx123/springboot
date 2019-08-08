@@ -15,7 +15,7 @@ public class EmployeeController {
 	public List<Employee> getEmployees() {
 		List<Employee> employeesList = new ArrayList<Employee>();
 		employeesList.add(new Employee(1, "Hari", "Kishore", "hari.kishore@gmail.com"));
-		employeesList.add(new Employee(2, "Anil", "Kumar", "anil.kumar@gmail.com"));
+		employeesList.add(new Employee(2, "Anil", "KumarReddy", "anil.kumar@gmail.com"));
 		return employeesList;
 	}
 
