@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.springbootdemo.demo</groupId>
-	<artifactId>springbootdemo</artifactId>
+	<artifactId>springboot</artifactId>
 	<packaging>war</packaging>
 
 	<name>SpringBootDemo</name>
