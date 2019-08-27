@@ -14,8 +14,8 @@ public class EmployeeController {
 	@RequestMapping("/findall")
 	public List<Employee> getEmployees() {
 		List<Employee> employeesList = new ArrayList<Employee>();
-		employeesList.add(new Employee(1, "HariKishore", "BhargaviC", "hari.kishore@gmail.com"));
-		employeesList.add(new Employee(2, "AnilKumar", "CharanC", "anil.kumar@gmail.com"));
+		employeesList.add(new Employee(1, "HariKishoreM", "BhargaviC", "hari.kishore@gmail.com"));
+		employeesList.add(new Employee(2, "AnilKumarM", "CharanC", "anil.kumar@gmail.com"));
 		return employeesList;
 	}
 
