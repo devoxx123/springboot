@@ -4,7 +4,7 @@ node{
    }
    
    stage('Compile-Package'){
-     def mvnHome = tool name: 'Maven', type: 'maven'
+     def mvnHome = tool name: 'Maven-3', type: 'maven'
      bat "${mvnHome}/bin/mvn package"
    }
   stage('Artifact'){
@@ -12,8 +12,6 @@ node{
    }
   stage ('Tomcat Deploy'){
    echo 'deployment started'
-       bat '''copy C:\\Users\\SCIIT\\.jenkins\\workspace\\jenkins-git-maven\\target\\spring.war C:\\Users\\SCIIT\\Downloads\\JenkinsTomcat\\apache-tomcat-9.0.22\\webapps\\'''
+       bat '''copy C:\\Users\\SCIIT\\.jenkins\\workspace\\Jenkins-pipeline\\target\\spring.war C:\\Users\\SCIIT\\Downloads\\JenkinsTomcat\\apache-tomcat-9.0.22\\webapps\\'''
    }
-   
 }
-
