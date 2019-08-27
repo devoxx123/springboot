@@ -12,6 +12,16 @@ node{
    }
   stage ('Tomcat Deploy'){
    echo 'deployment started'
-       bat '''copy C:\\Users\\SCIIT\\.jenkins\\workspace\\Jenkins-pipeline\\target\\spring.war C:\\Users\\SCIIT\\Downloads\\JenkinsTomcat\\apache-tomcat-9.0.22\\webapps\\'''
+     bat '''copy C:\\Users\\SCIIT\\.jenkins\\workspace\\Jenkins-pipeline\\target\\spring.war C:\\Users\\SCIIT\\Downloads\\JenkinsTomcat\\apache-tomcat-9.0.22\\webapps\\'''
    }
+  stage('Slack Notification'){
+    slackSend baseUrl: 'https://hooks.slack.com/services/', 
+    channel: '#jenkins-slack', 
+    color: 'good', 
+    message: 'Welcome to Jenkins Slack !', 
+    teamDomain: 'xpms123.slack.com', 
+    tokenCredentialId: 'devoxxId',
+    username: 'xpms'
+  }
+  
 }
