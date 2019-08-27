@@ -2,6 +2,7 @@ package com.springboot.demo.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Date;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,5 +19,9 @@ public class EmployeeController {
 		employeesList.add(new Employee(2, "AnilKumarM", "CharanC", "anil.kumar@gmail.com"));
 		return employeesList;
 	}
+	@RequestMapping("/today")
+	public String todayDate(){
+		String date=" Welcome To Jenkins Learning Centre " + new Date();
+		return date;
 
 }
