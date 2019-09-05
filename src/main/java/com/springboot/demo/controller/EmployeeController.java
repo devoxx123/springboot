@@ -15,11 +15,11 @@ public class EmployeeController {
 	@RequestMapping("/findall")
 	public List<Employee> getEmployees() {
 		List<Employee> employeesList = new ArrayList<Employee>();
-		employeesList.add(new Employee(11, "HariKishoreM", "BhargaviC", "hari.kishore@gmail.com"));
-		employeesList.add(new Employee(22, "AnilKumarM", "CharanC", "anil.kumar@gmail.com"));
-		employeesList.add(new Employee(33, "SrinivasM", "Madipalli", "Srinivas@gmail.com"));
-		employeesList.add(new Employee(44, "Lepakshi", "Yanamala", "Lepakshi.jetti@gmail.com"));
-		employeesList.add(new Employee(55, "Sai", "Z", "Sai.jetti@gmail.com"));
+		employeesList.add(new Employee(1, "HariKishoreM", "BhargaviC", "hari.kishore@gmail.com"));
+		employeesList.add(new Employee(2, "AnilKumarM", "CharanC", "anil.kumar@gmail.com"));
+		employeesList.add(new Employee(3, "SrinivasM", "Madipalli", "Srinivas@gmail.com"));
+		employeesList.add(new Employee(4, "Lepakshi", "Yanamala", "Lepakshi.jetti@gmail.com"));
+		employeesList.add(new Employee(5, "Sai", "Z", "Sai.jetti@gmail.com"));
 		return employeesList;
 	}
 
