@@ -1,10 +1,6 @@
 package com.springboot.demo.model;
 
 public class Employee {
-
-	public Employee() {
-		
-	
 	public Employee(Integer id, String firstName, String lastName, String email) {
 		super();
 		this.id = id;
@@ -12,6 +8,7 @@ public class Employee {
 		this.lastName = lastName;
 		this.email = email;
 	}
+	public Employee() {}
 	
 	private Integer id;
 	private String firstName;
