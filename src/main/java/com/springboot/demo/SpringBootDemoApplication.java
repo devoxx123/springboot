@@ -9,7 +9,8 @@ import org.springframework.boot.web.support.SpringBootServletInitializer;
 public class SpringBootDemoApplication extends SpringBootServletInitializer {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringBootDemoApplication.class, args);
+	ConfigurableApplicationContext ctx=SpringApplication.run(SpringBootDemoApplication.class, args);
+		 ctx.close();
 	}
 
 	@Override
