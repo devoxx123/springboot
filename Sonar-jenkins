@@ -1,0 +1,40 @@
+
+node{
+   stage('SCM Checkout'){
+     git 'https://github.com/devoxx123/springboot.git'
+   } 
+   stage('Compile-Package'){
+     def mvnHome = tool name: 'Maven-3', type: 'maven'
+     bat "${mvnHome}/bin/mvn package"
+   }
+   stage('Sonar Qube Analysis'){
+     def mvnHome = tool name: 'Maven-3', type: 'maven'
+	 withSonarQubeEnv('Sonar-Qube'){
+     bat "${mvnHome}/bin/mvn sonar:sonar -D sonar.login=admin -D sonar.password=123456789"
+	 }
+   }
+  stage('Artifact'){
+    archiveArtifacts 'target/*.war'
+   }
+  stage('Nexus artifactory'){
+    nexusPublisher nexusInstanceId: 'SonaType-Nexus', 
+    nexusRepositoryId: 'nexus_devoxx', 
+    packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: 'C:\\Users\\SCIIT\\.jenkins\\workspace\\jenkins-devoxx\\target\\spring.war']],
+    mavenCoordinate: [artifactId: 'springboot', groupId: 'com.boot', packaging: 'war', version: '1.6']]]
+   }
+  stage ('Tomcat Deploy'){
+   echo 'deployment started'
+     bat '''copy C:\\Users\\SCIIT\\.jenkins\\workspace\\jenkins-devoxx\\target\\spring.war C:\\Users\\SCIIT\\Downloads\\JenkinsTomcat\\apache-tomcat-9.0.22\\webapps\\'''
+   }
+  stage('Slack Notification'){
+    slackSend baseUrl: 'https://hooks.slack.com/services/', 
+    channel: '#jenkins-slack', 
+    color: 'good', 
+    message: 'Welcome to Jenkins leaning centre !', 
+    teamDomain: 'xpms123.slack.com', 
+    tokenCredentialId: 'devoxxId',
+    username: 'xpms'
+  }
+  
+   
+}
